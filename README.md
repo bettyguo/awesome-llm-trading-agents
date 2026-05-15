@@ -6,7 +6,7 @@
 
 # awesome-llm-trading-agents
 
-> A curated, verified map of the LLM-trading-agent ecosystem — frameworks, papers, datasets, and evaluation tools — with honest notes on what is rigorous and what is hype.
+> A curated, verified map of the LLM-trading-agent ecosystem, frameworks, papers, datasets, and evaluation tools, with honest notes on what is rigorous and what is hype.
 
 [![Awesome](https://awesome.re/badge.svg)](https://github.com/sindresorhus/awesome) ![License: CC0 list / MIT code](https://img.shields.io/badge/license-CC0%20%2F%20MIT-blue) ![Entries](https://img.shields.io/badge/entries-62-brightgreen)
 
