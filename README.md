@@ -38,7 +38,6 @@ This list is a research map. Nothing here is investment advice. The category is 
 - [Related Lists](#related-lists)
 - [Methodology & Common Pitfalls](docs/methodology.md)
 - [Contributing](CONTRIBUTING.md)
-- [Curator & License](#curator--license)
 
 ---
 
@@ -175,13 +174,3 @@ The single most useful section of this repo. A self-contained guide to evaluatin
 
 See [`CONTRIBUTING.md`](CONTRIBUTING.md). Every entry must include a verification source and a factual, non-promotional honest note. The PR will be auto-checked by the link-checker and entry validator.
 
----
-
-## Curator & License
-
-Curated by **Betty Guo** ([Dongxin Guo](https://bettyguo.github.io)), PhD candidate in Computer Science at [The University of Hong Kong](https://www.cs.hku.hk/), advised by [Prof. Siu-Ming Yiu](https://www.cs.hku.hk/people/academic-staff/smyiu).
-
-- List content (this README, `entries/`, `docs/`) — CC0 1.0. See [`LICENSE-list`](LICENSE-list).
-- Tooling code (`tools/`, `.github/`) — MIT. See [`LICENSE`](LICENSE).
-
-> [![Star History Chart](https://api.star-history.com/svg?repos=bettyguo/awesome-llm-trading-agents&type=Date)](https://star-history.com/#bettyguo/awesome-llm-trading-agents&Date)
