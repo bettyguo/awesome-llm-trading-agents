@@ -6,9 +6,9 @@
 
 # awesome-llm-trading-agents
 
-> A curated, verified map of the LLM-trading-agent ecosystem, frameworks, papers, datasets, and evaluation tools, with honest notes on what is rigorous and what is hype.
+> A curated, verified map of the LLM-trading-agent ecosystem — frameworks, papers, datasets, and evaluation tools — with honest notes on what is rigorous and what is hype.
 
-[![Awesome](https://awesome.re/badge.svg)](https://github.com/sindresorhus/awesome) ![License: CC0 list / MIT code](https://img.shields.io/badge/license-CC0%20%2F%20MIT-blue) ![Entries](https://img.shields.io/badge/entries-62-brightgreen)
+[![Awesome](https://awesome.re/badge.svg)](https://github.com/sindresorhus/awesome) ![License: CC0 list / MIT code](https://img.shields.io/badge/license-CC0%20%2F%20MIT-blue) ![Entries](https://img.shields.io/badge/entries-63-brightgreen)
 
 ---
 
@@ -38,6 +38,7 @@ This list is a research map. Nothing here is investment advice. The category is 
 - [Related Lists](#related-lists)
 - [Methodology & Common Pitfalls](docs/methodology.md)
 - [Contributing](CONTRIBUTING.md)
+- [Curator & License](#curator--license)
 
 ---
 
@@ -68,6 +69,7 @@ Single-LLM or memory-augmented traders that don't coordinate a team of agents. O
 | [DianJin-R1 (Qwen DianJin)](https://github.com/aliyun/qwen-dianjin) · [paper](https://arxiv.org/abs/2504.15716) | framework | 2025 | Financial reasoning LLM family from Alibaba Cloud, fine-tuned from Qwen2.5-7B-Instruct and Qwen2.5-32B-Instruct using reasoning-augmented supervision over CFLUE / FinQA / a proprietary Chinese-compliance corpus, then RL with GRPO over dual reward signals. | One of the strongest open Chinese-finance reasoning LLMs as of 2025. Useful complement to Fin-R1 and Fino1 for projects whose corpora include Chinese regulatory text. Same category-error caveat as the other reasoning LLMs on this list: not a trading agent. |
 | [Fin-R1](https://github.com/SUFE-AIFLM-Lab/Fin-R1) · [paper](https://arxiv.org/abs/2503.16252) | framework | 2025 | A 7B financial reasoning LLM built on Qwen2.5-7B-Instruct, trained with SFT on Fin-R1-Data (~60k bilingual financial reasoning examples) followed by RL with Group Relative Policy Optimization (GRPO). | Important caveat — Fin-R1 is a financial *reasoning* LLM, not a trading agent. The paper reports top scores on FinQA (76.0) and ConvFinQA (85.0), out-performing DeepSeek-R1 and Qwen-2.5-32B on those benchmarks. Useful as a backbone *inside* a trading agent, but on its own it answers financial-reasoning questions; it does not place trades. Treat performance comparisons against trading-agent frameworks as a category error. |
 | [Fino1 / Fin-o1](https://github.com/The-FinAI/Fino1) · [paper](https://arxiv.org/abs/2502.08127) | framework | 2025 | Reasoning-enhanced financial LLM built on Llama-3.1-8B-Instruct via CoT fine-tuning on the FinCoT corpus (distilled from seven QA datasets with a three-stage pipeline) and then RL. Reports a consistent ~10% gain on financial reasoning tasks over the base model. | Same caveat as Fin-R1 — Fino1 is a financial *reasoning* model, not a trading agent. The paper's most useful finding is that general reasoning-enhanced models (including DeepSeek-R1) *fail to generalise to finance without domain-specific data*, and that GRPO yields gains where PPO and DPO do not. A backbone candidate for finance-aware LLM agents. |
+| [ai-trading](https://github.com/TLSRUF/ai-trading) | framework | 2026 | Crypto perpetual-futures paper-trading bot where a single LLM call (Claude) per cycle decides direction and confidence - either for one fixed symbol or by screening a candidate pool and picking among them - while a separate hard-coded risk engine independently clamps leverage, position size, cooldowns, safe-mode, and win-rate/volatility quality gates regardless of what the model proposes. | Built in a single development session with no live or paper-trading track record yet - this should be weighted accordingly. Its predecessor was a rule-based signal engine (kept in the repo for reference); backtested against simple buy-and-hold on Bybit BTC/ETH/SOL perpetuals, plain buy-and-hold beat every configuration by 30+ percentage points over a 90-day bull window (see the repo's BENCHMARK.md), which is part of why direction-setting was moved to the LLM. Because the LLM makes the actual trading decision, it inherits the same backtest-irreproducibility problem as other frameworks in this category - readers should treat any future performance claims as forward paper-trading results only, not backtests. |
 | [FinRL](https://github.com/AI4Finance-Foundation/FinRL) · [paper](https://arxiv.org/abs/2011.09607) | framework | 2020 | Open-source deep reinforcement learning library for automated stock trading, providing a layered architecture (environment, agents, applications) and reference implementations across single-stock, multi-stock, portfolio-allocation, and crypto tasks. FinRL-X is the next-generation modular evolution. | Not an LLM agent — but listed here because *every* LLM-trading paper worth reading should compare to a strong RL baseline, and FinRL is the standard. Use it as the "is this LLM agent actually beating a tuned PPO/SAC on the same task?" sanity check. Readers should note that FinRL itself has many tutorials with optimistic-looking returns; the same critical-reading rules apply. |
 
 ## Foundational & Influential Papers
@@ -168,3 +170,19 @@ The single most useful section of this repo. A self-contained guide to evaluatin
 
 → **Read [`docs/methodology.md`](docs/methodology.md).**
 
+---
+
+## Contributing
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md). Every entry must include a verification source and a factual, non-promotional honest note. The PR will be auto-checked by the link-checker and entry validator.
+
+---
+
+## Curator & License
+
+Curated by **Betty Guo (Dongxin Guo)**, final-year CS PhD candidate, University of Hong Kong; advised by Prof. Siu-Ming Yiu. ORCID [0009-0000-2388-1072](https://orcid.org/0009-0000-2388-1072). GitHub [@bettyguo](https://github.com/bettyguo).
+
+- List content (this README, `entries/`, `docs/`) — CC0 1.0. See [`LICENSE-list`](LICENSE-list).
+- Tooling code (`tools/`, `.github/`) — MIT. See [`LICENSE`](LICENSE).
+
+> [![Star History Chart](https://api.star-history.com/svg?repos=bettyguo/awesome-llm-trading-agents&type=Date)](https://star-history.com/#bettyguo/awesome-llm-trading-agents&Date)

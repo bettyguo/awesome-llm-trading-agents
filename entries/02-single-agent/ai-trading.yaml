@@ -1,0 +1,34 @@
+slug: ai-trading
+title: ai-trading
+type: framework
+category: 02-single-agent
+subcategory: risk-clamped
+url: https://github.com/TLSRUF/ai-trading
+maintainer: TLSRUF
+year: 2026
+description: >-
+  Crypto perpetual-futures paper-trading bot where a single LLM call (Claude) per cycle decides
+  direction and confidence - either for one fixed symbol or by screening a candidate pool and
+  picking among them - while a separate hard-coded risk engine independently clamps leverage,
+  position size, cooldowns, safe-mode, and win-rate/volatility quality gates regardless of what
+  the model proposes.
+note: >-
+  Built in a single development session with no live or paper-trading track record yet - this
+  should be weighted accordingly. Its predecessor was a rule-based signal engine (kept in the repo
+  for reference); backtested against simple buy-and-hold on Bybit BTC/ETH/SOL perpetuals, plain
+  buy-and-hold beat every configuration by 30+ percentage points over a 90-day bull window (see
+  the repo's BENCHMARK.md), which is part of why direction-setting was moved to the LLM. Because
+  the LLM makes the actual trading decision, it inherits the same backtest-irreproducibility
+  problem as other frameworks in this category - readers should treat any future performance
+  claims as forward paper-trading results only, not backtests.
+tags:
+  - single-agent
+  - crypto-futures
+  - risk-engine
+  - paper-trading
+verification:
+  status: verified
+  sources:
+    - https://github.com/TLSRUF/ai-trading
+    - https://github.com/TLSRUF/ai-trading/blob/main/BENCHMARK.md
+  verified_on: "2026-09-21"
