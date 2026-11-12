@@ -1,0 +1,18 @@
+slug: semantic-signal
+title: Semantic Signal
+type: tool
+category: 02-single-agent
+subcategory: memory-augmented
+url: https://github.com/qrak/LLM_trader
+maintainer: qrak
+description: >-
+  Single-agent LLM paper trader that renders a 1920x1080 chart from each closed candle, sends it with 65 Numba-compiled indicators and a memory of its own closed trades to a multimodal model, then validates the answer with deterministic rules before booking a paper trade.
+note: >-
+  Publishes every prompt, retrieved memory and decision, and the README reports +0.05% over 52 days on 14 counted BTC/USDC trades against -9.27% buy-and-hold with zero fees recorded, so the result is not evidence of an edge and is negative after inference cost. As with any 2026 LLM trading study, readers should independently check the evaluation window and whether paper fills reflect real trading costs.
+tags: [single-agent, memory, crypto, paper-trading]
+verification:
+  status: verified
+  sources:
+    - https://github.com/qrak/LLM_trader
+    - https://semanticsignal.qrak.org
+  verified_on: "2026-11-12"
