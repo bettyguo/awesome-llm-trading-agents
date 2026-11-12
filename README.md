@@ -6,9 +6,9 @@
 
 # awesome-llm-trading-agents
 
-> A curated, verified map of the LLM-trading-agent ecosystem, frameworks, papers, datasets, and evaluation tools, with honest notes on what is rigorous and what is hype.
+> A curated, verified map of the LLM-trading-agent ecosystem — frameworks, papers, datasets, and evaluation tools — with honest notes on what is rigorous and what is hype.
 
-[![Awesome](https://awesome.re/badge.svg)](https://github.com/sindresorhus/awesome) ![License: CC0 list / MIT code](https://img.shields.io/badge/license-CC0%20%2F%20MIT-blue) ![Entries](https://img.shields.io/badge/entries-62-brightgreen)
+[![Awesome](https://awesome.re/badge.svg)](https://github.com/sindresorhus/awesome) ![License: CC0 list / MIT code](https://img.shields.io/badge/license-CC0%20%2F%20MIT-blue) ![Entries](https://img.shields.io/badge/entries-63-brightgreen)
 
 ---
 
@@ -38,6 +38,7 @@ This list is a research map. Nothing here is investment advice. The category is 
 - [Related Lists](#related-lists)
 - [Methodology & Common Pitfalls](docs/methodology.md)
 - [Contributing](CONTRIBUTING.md)
+- [Curator & License](#curator--license)
 
 ---
 
@@ -63,6 +64,7 @@ Single-LLM or memory-augmented traders that don't coordinate a team of agents. O
 |---|---|---|---|---|
 | [BloombergGPT](https://arxiv.org/abs/2303.17564) | paper | 2023 | 50B-parameter language model trained on 363B tokens of Bloomberg financial data plus 345B tokens of general-purpose text — the first widely-cited large financial LLM. The model itself is not released; the paper documents the training mix, architecture, and benchmark results. | Historical landmark but closed-weight. Reproduction is impossible without Bloomberg-internal data, which is precisely the gap that the FinGPT / FinMA / Fin-R1 lineage of open-weight FinLLMs was built to close. Cite for context; for actual use in your LLM agent, prefer an open-weight model. |
 | [FinMem](https://github.com/pipiku915/FinMem-LLM-StockTrading) · [paper](https://arxiv.org/abs/2311.13743) | framework | 2023 | Single LLM trading agent with three modules — character profiling, a layered memory with decay to model differing temporal sensitivities of financial signals, and a decision module — designed to mirror the cognitive structure of human discretionary traders. | Foundational reference for memory-aware LLM traders and the conceptual ancestor of TradingAgents and FinCon. The paper reports strong returns vs. algorithmic baselines on a scoped stock-trading task; readers should note the universe and time window are limited, and like all 2023-vintage LLM trading work the evaluation window risks overlap with the backbone LLM's training data. |
+| [Semantic Signal](https://github.com/qrak/LLM_trader) | tool | — | Single-agent LLM paper trader that renders a 1920x1080 chart from each closed candle, sends it with 65 Numba-compiled indicators and a memory of its own closed trades to a multimodal model, then validates the answer with deterministic rules before booking a paper trade. | Publishes every prompt, retrieved memory and decision, and the README reports +0.05% over 52 days on 14 counted BTC/USDC trades against -9.27% buy-and-hold with zero fees recorded, so the result is not evidence of an edge and is negative after inference cost. As with any 2026 LLM trading study, readers should independently check the evaluation window and whether paper fills reflect real trading costs. |
 | [Qlib](https://github.com/microsoft/qlib) | framework | 2020 | AI-oriented quantitative investment platform covering the full ML pipeline — data processing, feature engineering, model training, backtesting — across supervised learning, market-dynamics modeling, and reinforcement learning, with the RD-Agent extension automating research workflow. | Like FinRL, not an LLM trading agent but essential infrastructure that LLM-agent work should be benchmarked against. Qlib's data layer (Alpha 158 / 360, point-in-time fundamentals) is among the cleaner public substrates for reproducible factor research and rules out the "the LLM picked up features the baseline didn't have" failure mode. |
 | [Agentar-Fin-R1](https://arxiv.org/abs/2507.16802) | framework | 2025 | Series of 8B and 32B financial LLMs from Ant Group built on Qwen3, focused on financial-agent reasoning and compliance verification. Introduces the Finova benchmark (agent-level financial tasks) and a multi-layered trustworthiness assurance training pipeline. | The strongest signal in this family is *industrial* — Ant Group has direct skin in the financial-compliance game, which makes their evaluation choices (Finova in particular) worth taking seriously. As with all such releases, distinguish "performance on the curator's own benchmark" from "performance on an independently-held benchmark" — Finova is the curator's benchmark. |
 | [DianJin-R1 (Qwen DianJin)](https://github.com/aliyun/qwen-dianjin) · [paper](https://arxiv.org/abs/2504.15716) | framework | 2025 | Financial reasoning LLM family from Alibaba Cloud, fine-tuned from Qwen2.5-7B-Instruct and Qwen2.5-32B-Instruct using reasoning-augmented supervision over CFLUE / FinQA / a proprietary Chinese-compliance corpus, then RL with GRPO over dual reward signals. | One of the strongest open Chinese-finance reasoning LLMs as of 2025. Useful complement to Fin-R1 and Fino1 for projects whose corpora include Chinese regulatory text. Same category-error caveat as the other reasoning LLMs on this list: not a trading agent. |
@@ -168,3 +170,19 @@ The single most useful section of this repo. A self-contained guide to evaluatin
 
 → **Read [`docs/methodology.md`](docs/methodology.md).**
 
+---
+
+## Contributing
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md). Every entry must include a verification source and a factual, non-promotional honest note. The PR will be auto-checked by the link-checker and entry validator.
+
+---
+
+## Curator & License
+
+Curated by **Betty Guo (Dongxin Guo)**, final-year CS PhD candidate, University of Hong Kong; advised by Prof. Siu-Ming Yiu. ORCID [0009-0000-2388-1072](https://orcid.org/0009-0000-2388-1072). GitHub [@bettyguo](https://github.com/bettyguo).
+
+- List content (this README, `entries/`, `docs/`) — CC0 1.0. See [`LICENSE-list`](LICENSE-list).
+- Tooling code (`tools/`, `.github/`) — MIT. See [`LICENSE`](LICENSE).
+
+> [![Star History Chart](https://api.star-history.com/svg?repos=bettyguo/awesome-llm-trading-agents&type=Date)](https://star-history.com/#bettyguo/awesome-llm-trading-agents&Date)
